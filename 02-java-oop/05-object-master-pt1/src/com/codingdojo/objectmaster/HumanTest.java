@@ -3,8 +3,8 @@ package com.codingdojo.objectmaster;
 public class HumanTest {
 
 	public static void main(String[] args) {
-		Human reginald = new Human();
-		Human alonzo = new Human();
+		Human reginald = new Ninja();
+		Human alonzo = new Samurai();
 		
 		System.out.println("Reginald attacks Alonzo!");
 		reginald.attack(alonzo);
