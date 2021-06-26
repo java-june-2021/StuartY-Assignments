@@ -7,17 +7,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class CounterController {
 	
-	int counter = 0;
+	private void counter(HttpSession session) {
+		if(session.getAttribute("visits") == null) {
+			session.setAttribute("visits", 0);
+		}
+	}
 	
 	@RequestMapping("/")
-	public String index() {
-		counter++;
+	public String index(HttpSession sesh) {
+		counter(sesh);
+		int count = (int)sesh.getAttribute("visits");
+		count++;
+		sesh.setAttribute("visits", count);
 		return "index.jsp";
 	}
 	
 	@RequestMapping("/counter")
-	public String counter(HttpSession session) {
-		session.setAttribute("visits", counter);
+	public String viewCounter(HttpSession sesh) {
+		counter(sesh);
 		return "counter.jsp";
 	}
 
