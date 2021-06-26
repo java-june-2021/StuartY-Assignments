@@ -22,10 +22,25 @@ public class CounterController {
 		return "index.jsp";
 	}
 	
+	@RequestMapping("/double")
+	public String doubleCount(HttpSession sesh) {
+		counter(sesh);
+		int count = (int)sesh.getAttribute("visits");
+		count += 2;
+		sesh.setAttribute("visits", count);
+		return "doublecount.jsp";
+	}
+	
 	@RequestMapping("/counter")
 	public String viewCounter(HttpSession sesh) {
 		counter(sesh);
 		return "counter.jsp";
+	}
+	
+	@RequestMapping("/reset")
+	public String resetCount(HttpSession sesh) {
+		sesh.invalidate();
+		return "redirect:/counter";
 	}
 
 }
