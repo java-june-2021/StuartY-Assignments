@@ -10,11 +10,9 @@
 </head>
 <body>
 <ul>
-	<li>Loyalty</li>
-	<li>Courage</li>
-	<li>Veracity</li>
-	<li>Compassion</li>
-	<li>Honor</li>
+	<c:forEach items="${values}" var="value">
+		<li><c:out value="${value}"/></li>
+	</c:forEach>
 </ul>
 </body>
 </html>
