@@ -1,0 +1,47 @@
+textarea, button {
+	margin: 10px auto;
+	display: block;
+}
+
+textarea {
+	width: 400px;
+}
+
+form {
+	width: 420px;
+	display: inline-block;
+	padding: 5px;
+}
+ 
+input, select {
+	width: 40%;
+}
+
+.row {
+	display: flex;
+	justify-content: space-between;
+	align-content: center;
+	width: 400px;
+}
+
+.row *{
+	margin: 3px;
+}
+
+
+#wrapper {
+	margin: auto;
+  	padding: 10px;
+  	width: 430px;
+  	border: solid 2px black;
+}
+
+h2 {
+	text-decoration: underline;
+}
+
+button, a {
+	text-decoration: none;
+	color: white;
+	background-color: rgb(118,165,175);
+}
