@@ -1,0 +1,35 @@
+* {
+	background-color: black;
+	color: white;
+}
+
+.container {
+	margin: 20px auto;
+	width: 500px;
+}
+
+th {
+	background-color: gray;
+}
+
+td, td a {
+	background-color: silver;
+	color: black;
+}
+
+th, td {
+	padding: 5px;
+}
+
+tr:nth-child(even) td, tr:nth-child(even) a{
+	background-color: white;
+}
+
+input {
+	background-color: white;
+	color: black;
+}
+
+td a, a {
+	color: blue;	
+}
