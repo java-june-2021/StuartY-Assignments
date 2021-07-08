@@ -1,0 +1,52 @@
+#container {
+	margin: 10px auto;
+	width: 900px;
+	text-align: center;
+	
+}
+
+#header{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.data {
+	margin: 10px auto;
+	width: 600px;
+	border: 2px solid black;
+	text-align: left;
+}
+
+.data th{
+	background-color: gray;
+}
+
+.data td, .data td a {
+	background-color: silver;
+}
+
+th, td {
+	padding: 5px;
+}
+
+.data tr:nth-child(even) td, .data tr:nth-child(even) a{
+	background-color: white;
+}
+
+#topTen {
+	border: 2px solid black;
+	margin: 20px auto;
+}
+
+form {
+	display: inline-block;
+}
+
+form p{
+	display: flex;
+	justify-content: space-evenly;
+}
+
+form p label{
+	width: 120px;
+}
