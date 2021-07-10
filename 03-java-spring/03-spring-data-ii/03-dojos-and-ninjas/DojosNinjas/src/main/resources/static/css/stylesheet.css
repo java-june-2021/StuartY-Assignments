@@ -1,0 +1,29 @@
+form p{
+	display: flex;
+	justify-content: space-between;
+	align-conent: center;
+}
+
+form {
+	width: 250px;
+	margin: 10px;
+}
+
+table {
+	border: 1px solid black;
+}
+
+td {
+	background-color: silver;
+	text-align: center;
+}
+
+th{
+	background-color: gray;
+	color: white;
+	width: 150px;
+}
+
+tr:nth-child(even) td {
+	background-color: white;
+}
