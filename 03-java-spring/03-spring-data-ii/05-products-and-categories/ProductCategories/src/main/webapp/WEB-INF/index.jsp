@@ -7,11 +7,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>New Product</title>
+<title>Home</title>
 </head>
 <body>
 <div id="container">
-	<h1>New Product</h1>
+	<h1>Products and Categories</h1>
 <a href="/products/new">New Product</a>
 <a href="/categories/new">New Category</a>
 </div>

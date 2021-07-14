@@ -6,13 +6,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
 <meta charset="ISO-8859-1">
 <title>New Product</title>
 </head>
 <body>
 <div id="container">
 	<h1>New Product</h1>
-	<form:form action="/products/new" method="POST" modelAttribute="newProduct">
+	<form:form action="/products/new" method="POST" modelAttribute="newProduct" class="newRecord">
 		<p>
 			<form:label path="name">Name:</form:label>
 			<form:errors path="name"/>

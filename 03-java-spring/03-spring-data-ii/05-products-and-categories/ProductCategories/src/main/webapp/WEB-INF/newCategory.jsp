@@ -6,13 +6,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
 <meta charset="ISO-8859-1">
 <title>New Category</title>
 </head>
 <body>
 <div id="container">
 	<h1>New Category</h1>
-	<form:form action="/categories/new" method="POST" modelAttribute="newCategory">
+	<form:form action="/categories/new" method="POST" modelAttribute="newCategory" class="newRecord">
 		<p>
 			<form:label path="name">Name:</form:label>
 			<form:errors path="name"/>

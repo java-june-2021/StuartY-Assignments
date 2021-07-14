@@ -20,6 +20,7 @@ public class CategoryService {
 	public CategoryService(CategoryRepository cRepo, ProductRepository pRepo) {
 		this.cRepo = cRepo;
 		this.pRepo = pRepo;
+		
 	}
 	
 	//create a new Category
@@ -44,13 +45,17 @@ public class CategoryService {
 	
 	//find Categories not in a given Product
 	public List<Category> findCategoryNotInProduct(Product product){
+		//Generate list of IDs for the categories within the given Product
 		List<Long> catIds = new ArrayList<>();
 		for(Category category : product.getCategories()) {
 			catIds.add(category.getId());
 		}
+		//If a given product doesn't have any categories, return all the
+		//categories by default
 		if(product.getCategories().isEmpty()) {
 			return cRepo.findAll();
 		} else {
+			//the list of ALL categories not associated with this product
 			return cRepo.findByIdNotIn(catIds);
 		}		
 	}
@@ -60,6 +65,11 @@ public class CategoryService {
 		return cRepo.findByProducts(product);
 	}
 	
+	//MVC forms will overwrite an entire object so 
+	//we have to use HTML forms to add or remove categories
+	//to a given product. The next two methods add and remove 
+	//elements from Product.categories and saves the changes
+	//in SQL
 	public void addCategoryToProduct(Long catId, Long prodId) {
 		//Ensure both Product and Category exist by ID
 		if(pRepo.findById(prodId).isPresent() && cRepo.findById(catId).isPresent()) {

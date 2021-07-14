@@ -13,9 +13,6 @@ public interface ProductRepository extends CrudRepository<Product, Long> {
 	
 	public List<Product> findByName(String searchName);
 	public List<Product> findByCategories(Category category);
-//	public List<Category> findByCategoriesNotIn(List<Category> categories);
-	
-	
-	
-
+	public List<Product> findAll();
+	public List<Product> findByIdNotIn(List<Long> ids);
 }

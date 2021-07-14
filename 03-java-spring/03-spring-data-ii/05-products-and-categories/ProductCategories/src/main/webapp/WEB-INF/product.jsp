@@ -6,6 +6,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" type="text/css" href="/css/stylesheet.css">
 <meta charset="ISO-8859-1">
 <title>Product Page</title>
 </head>
@@ -20,8 +21,8 @@
 	</c:forEach>
 	</ul>
 	</div>
-	
-	<form action="/products/${id}" method="POST" class="selectForm">
+	<div class="selectForm">
+	<form action="/products/${id}" method="POST">
 		<label for="category">Add Category</label>
 		<select name="category">
 			<c:forEach items="${notCategories }" var="notCat">
@@ -32,7 +33,7 @@
 	
 	</form>
 	
-	<form action="/products/${id}/delete" method="POST" class="selectForm">
+	<form action="/products/${id}/delete" method="POST">
 		<label for="removeCat">Remove Category</label>
 		<select name="removeCat">
 			<c:forEach items="${productCategories}" var="productcategory">
@@ -41,20 +42,10 @@
 		</select>
 		<button>Remove From Categories</button>
 	</form>
-	
-<%-- 	<form:form action="/products/${id}" method="POST" modelAttribute="product" class="selectform">
-		<p>
-			<form:label path="categories">Add Category:</form:label>
-			<form:errors path="categories"/>
-			<form:select path="categories">
-				<c:forEach items="${notCategories }" var="notCat">
-					<option value="${notCat.id}">${notCat.name }</option>
-				</c:forEach>
-			</form:select>
-		</p>
-		<button>Update</button>
-	</form:form> --%>
+	</div>
+	<p>
 	<a href="/">Home</a>
+	</p>
 </div>
 
 </body>

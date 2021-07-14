@@ -106,6 +106,47 @@ public class MainController {
 		return "redirect:/products/{id}";
 	}
 	
+	//Get Mapping to load Category page with products, Post mapping
+	//to add Products currently not in the category
+	//and a Post Mapping to remove products
+	
+	@GetMapping("/categories/{id}")
+	public String editCategory(Model model, @PathVariable("id") Long id) {
+		if(cServ.findCategoryById(id) == null) {
+			return "redirect:/categories/new";
+		} else {
+			model.addAttribute("categoryname", cServ.findCategoryById(id).getName());
+			model.addAttribute("products", cServ.findCategoryById(id).getProducts());
+			model.addAttribute(
+					"notProducts",
+					pServ.findProductsNotInCategory(cServ.findCategoryById(id))
+					);
+			model.addAttribute("id", id);
+			return "category.jsp";
+		}
+	}
+	
+	@PostMapping("/categories/{id}")
+	public String updateCategory(
+			@PathVariable("id") Long catId,
+			@RequestParam(value="product") String prodIdString
+			) {
+		Long prodId = Long.valueOf(prodIdString);
+			
+		pServ.addProductToCategory(prodId, catId);
+		return "redirect:/categories/{id}";
+	}
+	
+	@PostMapping("/categories/{id}/delete")
+	public String deleteProdFromCat(
+			@PathVariable("id") Long catId,
+			@RequestParam("removeProd") String idString) {
+		Long prodId = Long.valueOf(idString);
+		pServ.removeProductFromCategory(prodId, catId);
+		
+		return "redirect:/categories/{id}";
+	}
+	
 	
 
 }

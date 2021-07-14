@@ -1,0 +1,37 @@
+.relatedlist, .selectForm {
+	display: inline-block;
+	margin: 20px auto;
+	padding: 10px;
+}
+
+.relatedlist {
+	vertical-align: top;
+	width: 200px;
+}
+
+.selectForm{
+	width: 300px
+}
+
+button {
+	margin: 5px 5px 5px 90px;
+	display: block;
+}
+
+form {
+	margin: 25px 5px 25px 5px;
+}
+
+.newRecord {
+	width: 300px;
+	margin: 10px;
+}
+
+.newRecord p{
+	display: flex;
+	justify-content: space-between;
+}
+
+.newRecord button {
+	margin-left: 240px;
+}
