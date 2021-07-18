@@ -1,0 +1,86 @@
+.errormsg {
+	color: red;
+}
+
+#tagbar {
+	display: flex;
+	justify-content: flex-start;
+	align-items: baseline;
+}
+
+#tagbar *{
+	margin: 5px;
+}
+
+.tagbox {
+	border: 1px solid black; 
+	box-shadow: 2px 2px;
+	padding: 2px;
+}
+
+#answersbody {
+	margin: 5px;
+	width: 600px;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+#answersbody table{
+	width: 400px;
+	margin: 10px;
+}
+
+#questionpage {
+	margin: 20px;
+}
+
+table {
+	border: 1px solid black;
+}
+
+th {
+	background-color: silver;
+}
+
+td, td a {
+	background-color: rgb(238,238,238);
+}
+
+tbody tr:nth-child(even) td, tbody tr:nth-child(even) a{
+	background-color: white;
+}
+
+#answerform {
+	margin: 0px 10px 0px 40px;
+}
+
+.questionHeader {
+	width: 500px;
+}
+
+.tagHeader {
+	width: 300px;
+}
+#dashboard {
+	margin: 20px;
+}
+
+#dashboard table {
+	margin: 20px;
+}
+
+#questionForm p {
+	display: flex;
+	justify-content: flex-start;
+	align-items: top;
+}
+
+#questionForm label {
+	width: 100px;
+}
+
+#newQuestion {
+	margin: 20px;
+}
+
