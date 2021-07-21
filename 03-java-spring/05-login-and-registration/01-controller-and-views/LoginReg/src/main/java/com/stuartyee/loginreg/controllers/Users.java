@@ -13,14 +13,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.stuartyee.loginreg.models.User;
 import com.stuartyee.loginreg.services.UserService;
+import com.stuartyee.loginreg.validations.UserValidator;
 
 //imports removed for brevity
 @Controller
 public class Users {
 	private final UserService userService;
+	private final UserValidator uVal;
  
-	public Users(UserService userService) {
+	public Users(UserService userService, UserValidator uVal) {
 		this.userService = userService;
+		this.uVal = uVal;
 	}
  
 	@RequestMapping("/registration")
@@ -35,6 +38,7 @@ public class Users {
  
 	@RequestMapping(value="/registration", method=RequestMethod.POST)
 	public String registerUser(@Valid @ModelAttribute("user") User user, BindingResult result, HttpSession session) {
+		uVal.validate(user, result);
 		if(result.hasErrors()) {
 			return "registrationPage.jsp";// if result has errors, return the registration page (don't worry about validations just now)
 		} else {
@@ -63,10 +67,16 @@ public class Users {
  
 	@RequestMapping("/home")
 	public String home(HttpSession session, Model model) {
-		Long id = (Long)session.getAttribute("id");
-		model.addAttribute("user", userService.findUserById(id));
-		return "homePage.jsp";
+		try {
+			Long id = (Long)session.getAttribute("id");
+			model.addAttribute("user", userService.findUserById(id));
+			System.out.println("User credentials accepted, logging in...");
+			return "homePage.jsp";
 		// get user from session, save them in the model and return the home page
+		} catch (Exception e) {
+			System.out.println("No users are logged in, redirecting to login page...");
+			return "redirect:/login";
+		}
 	}
  
 	@RequestMapping("/logout")
